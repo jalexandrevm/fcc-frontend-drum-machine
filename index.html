@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <title>Drum Machine</title>
+</head>
+
+<body class="vh-100">
+  <div id="drum-machine" class="d-flex flex-column vh-100 text-center" style="border: 1px solid black;">
+
+    <div class="flex-grow-0 bg-danger text-info">
+      <h1>Bateria Digital</h1>
+    </div>
+
+    <div class="row m-0 flex-grow-1 align-items-center justify-content-center"
+      style="border: 1px solid black; background-color: #8d8d8d;">
+
+      <div class="row align-items-center" style="border: 4px solid rgb(211, 104, 16); background-color: #b3b3b3;">
+
+        <div class="col-6 p-0 m-1">
+          <div class="row p-2">
+            <div class="key-bank row justify-content-center align-items-center" style="height: auto;">
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="heater-1" onclick="tocarSom('Q')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/PratoChoqueFechado.mp3" id="Q"></audio>Q
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="heater-2" onclick="tocarSom('W')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/PratoAtaque.mp3" id="W"></audio>W
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="heater-3" onclick="tocarSom('E')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/PratoCondução.mp3" id="E"></audio>E
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="heater-4" onclick="tocarSom('A')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/Tarola.mp3" id="A"></audio>A
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="clap" onclick="tocarSom('S')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/TimbaGrave.mp3" id="S"></audio>S
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="open-hh" onclick="tocarSom('D')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/TimbaChão.mp3" id="D"></audio>D
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="kick-n-hat" onclick="tocarSom('Z')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/PratoChoqueAberto.mp3" id="Z"></audio>Z
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="kick" onclick="tocarSom('X')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/Bumbo.mp3" id="X"></audio>X
+              </div>
+              <div class="key-pad drum-pad p-2 m-1 col-3 rounded" id="closed-hh" onclick="tocarSom('C')"
+                style="height: 6vh; border: 1px solid black; background-color: #8d8d8d;">
+                <audio class="clip" src="./som/TimbaChão.mp3" id="C"></audio>C
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-5 m-2">
+          <div class="turn-on-off">
+            <p class="m-0">Ligado</p>
+            <div class="row seletor justify-content-center">
+              <div class="bg-dark text-white rounded" onclick="turnOnOff()">
+                <span id="switch-on" class="text-success bg-warning">| ON </span> | <span id="switch-off"
+                  class="text-danger"> OFF
+                  |</span>
+              </div>
+            </div>
+          </div>
+          <p>Som: <span id="display"></span></p>
+          <div class="volume">
+            <input type="range" max="1" min="0" step="0.01" value="0.3">
+          </div>
+          <div class="turn-on-off">
+            <p>Sons</p>
+            <div class="seletor">
+              <span>1</span><span>2</span>
+              <div class="switch"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="flex-grow-0">
+      <div class="col">by Alex Marques</div>
+    </div>
+
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  <script>
+    window.addEventListener('keydown', (event) => {
+      console.log(event.key.toUpperCase());
+      switch (event.key.toUpperCase()) {
+        case 'Q':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'W':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'E':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'A':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'S':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'D':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'Z':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'X':
+          tocarSom(event.key.toUpperCase());
+          break;
+        case 'C':
+          tocarSom(event.key.toUpperCase());
+          break;
+        default:
+          break;
+      }
+    })
+    const mostrarTecla = () => {
+    };
+    turnOnOff = () => {
+      const btnOn = document.getElementById('switch-on');
+      const btnOff = document.getElementById('switch-off');
+      if (btnOn.className.includes('bg-warning')) {
+        btnOn.className = btnOn.className.replace('bg-warning', '').trim();
+        btnOff.className = btnOff.className.concat(' bg-warning')
+      } else if (btnOff.className.includes('bg-warning')) {
+        btnOff.className = btnOff.className.replace('bg-warning', '').trim();
+        btnOn.className = btnOn.className.concat(' bg-warning')
+      }
+    };
+    tocarSom = (id) => {
+      const somElem = document.getElementById(id);
+      const paiElem = somElem.parentElement;
+      const dispElem = document.getElementById('display');
+      const btnOn = document.getElementById('switch-on');
+      if (btnOn.className.includes('bg-warning')) {
+        dispElem.innerText = paiElem.id;
+        somElem.play();
+      }
+    };
+  </script>
+</body>
+
+</html>
